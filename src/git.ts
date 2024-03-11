@@ -54,7 +54,7 @@ export async function getGitInfo(): Promise<GitInfo[]> {
             }
         }
 
-        log(`using remote ${remoteUrl} and revision ${commitHash} and branch ${branch}`)
+        log(`Find git: remote ${remoteUrl} and revision ${commitHash} and branch ${branch}`)
         const gitUrl = GitUrlParse(remoteUrl);
         const host = (gitUrl.port != null && gitUrl.port > 0) ? gitUrl.resource + ':' + gitUrl.port : gitUrl.resource
         const parseUrl = new UrlParsed(gitUrl.protocol, host, gitUrl.pathname)

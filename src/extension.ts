@@ -51,8 +51,9 @@ const initializeStatusBar = (context: vscode.ExtensionContext, command = Command
 		return
 	}
 	const gitPath = workspaceFolders[0].uri.fsPath + path.sep + ".git"
-	log(gitPath + " => " + existsSync(gitPath))
-	if (!existsSync(gitPath)) {
+	const existsGitPath = existsSync(gitPath);
+	log(`Exist git path: ${gitPath} => ${existsGitPath}`)
+	if (!existsGitPath) {
 		return
 	}
 

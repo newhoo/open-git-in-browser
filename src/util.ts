@@ -54,8 +54,9 @@ export async function openGitInBrowser(gitInfos: GitInfo[], fileInfo: FileInfo) 
 }
 
 const doOpen = (gitInfo: GitInfo, fileInfo: FileInfo) => {
-    const webUtl = buildWebUrl(gitInfo.url, gitInfo.commitHash, gitInfo.branch, fileInfo)
-    vscode.env.openExternal(vscode.Uri.parse(webUtl));
+    const webUrl = buildWebUrl(gitInfo.url, gitInfo.commitHash, gitInfo.branch, fileInfo)
+    log("Open url: " + webUrl)
+    vscode.env.openExternal(vscode.Uri.parse(webUrl));
 }
 
 function buildWebUrl(url: UrlParsed, commitHash: string, branch: string, fileInfo: FileInfo): string {
