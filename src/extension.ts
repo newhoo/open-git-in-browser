@@ -24,7 +24,7 @@ const initializeCommands = (context: vscode.ExtensionContext, command = Commands
 			if (typeof arg === 'object' && arg.rootUri) {
 				fileInfo = null
 			} else if (arg instanceof vscode.Uri) {
-				const filePath = arg.path.replace(workspaceFolders[0].uri.path, "");
+				const filePath = arg.path.replace(workspaceFolders[0].uri.path, "").substring(1);
 				fileInfo = new FileInfo(filePath, 0, 0)
 			} else {
 				fileInfo = getEditorInfo()
