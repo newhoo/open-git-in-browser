@@ -1,6 +1,6 @@
 # open-git-in-browser
 
-Open the current file the source control platform's web UI. This is useful for sharing perma-links with collaborators. Install via the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=open-in-browser.git-open-in-browser) or see [Installation Instructions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions).
+Open the current file the source control platform's web UI. This is useful for sharing perma-links with collaborators. Install via the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=newhoo.open-git-in-browser) or see [Installation Instructions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions).
 
 ## Features
 
@@ -10,22 +10,24 @@ Open the current file the source control platform's web UI. This is useful for s
 
 Add Entries:
 
-- Add 'Open Git in Browser' to the Command Palette.
+- Add `Open Git in Browser` to the Command Palette.
 - Add status bar icon to open the git remote in your browser.
 - Add context menu option to open the selected file in your browser.
 - Add Git view menu option to open the it remote in your browser.
 
-## Extension Settings
+## Usage
+
+- StatusBar / Explorer context / Scm menu (can select text in editor)
+
+![](docs/main.png)
+
+- Extension Settings
 
 ![Extension settings](docs/settings.png)
 
 ## Requirements
 
 VSCode 1.85.0 or newer
-
-## Development
-
-Compile before debugging. Debug (F5) while editing `extension.ts` to spawn a VSCode debug instance.
 
 ## More
 
