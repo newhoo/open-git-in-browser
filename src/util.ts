@@ -32,7 +32,7 @@ export function getEditorInfo(): FileInfo | null {
     return null;
 }
 
-export async function openGitInBrowser(gitInfos: GitInfo[], fileInfo: FileInfo) {
+export function openGitInBrowser(gitInfos: GitInfo[], fileInfo: FileInfo) {
     if (!gitInfos || gitInfos.length < 1) {
         vscode.window.showInformationMessage("Could not find git info or recognize the remote web platform.");
         return
@@ -44,13 +44,14 @@ export async function openGitInBrowser(gitInfos: GitInfo[], fileInfo: FileInfo) 
     }
 
     const remoteNames = gitInfos.map(e => e.remoteName)
-    const choice = await vscode.window.showInformationMessage("Found more than one git remote, which do you want to open?", ...remoteNames);
-    for (let index = 0; index < gitInfos.length; index++) {
-        const gitInfo = gitInfos[index];
-        if (choice === gitInfo.remoteName) {
-            doOpen(gitInfo, fileInfo)
+    vscode.window.showInformationMessage("Found more than one git remote, which do you want to open?", ...remoteNames).then(choice => {
+        for (let index = 0; index < gitInfos.length; index++) {
+            const gitInfo = gitInfos[index];
+            if (choice === gitInfo.remoteName) {
+                doOpen(gitInfo, fileInfo)
+            }
         }
-    }
+    })
 }
 
 const doOpen = (gitInfo: GitInfo, fileInfo: FileInfo) => {
