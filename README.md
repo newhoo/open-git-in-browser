@@ -16,9 +16,11 @@ Add Entries:
 
 ## Usage
 
-- StatusBar / Explorer context / Scm menu (can select text in editor)
+- Editor context / Explorer context / Scm menu (can select text in editor)
 
-![](docs/main.png)
+![Editor context](docs/editor.png)
+
+![Explorer context](docs/explorer.png)
 
 - Extension Settings
 
