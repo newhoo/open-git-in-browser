@@ -11,7 +11,6 @@ Open the current file the source control platform's web UI. This is useful for s
 Add Entries:
 
 - Add `Open Git in Browser` to the Command Palette.
-- Add status bar icon to open the git remote in your browser.
 - Add context menu option to open the selected file in your browser.
 - Add Git view menu option to open the it remote in your browser.
 
@@ -31,4 +30,4 @@ VSCode 1.85.0 or newer
 
 ## More
 
-Encouraged by: [vscode-open-in-browser](https://github.com/andrei-m/vscode-open-in-browser) and [vscode-OpenGitRepository](https://github.com/xadamxk/vscode-OpenGitRepository)
+Encouraged by: [vscode-open-in-browser](https://github.com/andrei-m/vscode-open-in-browser)

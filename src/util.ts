@@ -1,5 +1,4 @@
 import * as vscode from 'vscode';
-import { EXTENSION_NAME } from './constants';
 import { GitInfo, UrlParsed } from './git';
 
 const out = vscode.window.createOutputChannel("Open Git in Browser");
@@ -17,19 +16,6 @@ export class FileInfo {
         this.firstLine = firstLine;
         this.lastLine = lastLine;
     }
-}
-
-export function getEditorInfo(): FileInfo | null {
-    const editor = vscode.window.activeTextEditor;
-    if (editor) {
-        const filePath = editor.document.uri.fsPath;
-        const relativeFilePath = vscode.workspace.asRelativePath(filePath);
-
-        const start = editor.selection.start.line + 1;
-        const end = editor.selection.end.line + 1;
-        return new FileInfo(relativeFilePath, start, end);
-    }
-    return null;
 }
 
 export function openGitInBrowser(gitInfos: GitInfo[], fileInfo: FileInfo) {
@@ -61,7 +47,7 @@ const doOpen = (gitInfo: GitInfo, fileInfo: FileInfo) => {
 }
 
 function buildWebUrl(url: UrlParsed, commitHash: string, branch: string, fileInfo: FileInfo): string {
-    const specialGitPlatformConfig = vscode.workspace.getConfiguration(EXTENSION_NAME)['specialGitPlatform'];
+    const specialGitPlatformConfig = vscode.workspace.getConfiguration('open-git-in-browser')['specialGitPlatform'];
     const specialGitPlatform = specialGitPlatformConfig[url.host];
 
     if (specialGitPlatform === "AzureDevOps") {

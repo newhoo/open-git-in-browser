@@ -31,10 +31,7 @@
   "categories": [
     "SCM Providers"
   ],
-  "activationEvents": [
-    "workspaceContains:.git",
-    "onStartupFinished"
-  ],
+  "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "configuration": [
@@ -47,48 +44,19 @@
             "type": "boolean",
             "order": 1,
             "default": true,
-            "description": "Show the action for opening the remote in a browser"
+            "description": "Show the action for opening the remote in a browser in scm title."
           },
           "open-git-in-browser.explorerContextAction.enabled": {
             "type": "boolean",
             "order": 2,
             "default": true,
-            "description": "Show the action for opening the remote in a browser"
+            "description": "Show the action for opening the remote in a browser in explorer context."
           },
-          "open-git-in-browser.statusBar.enabled": {
+          "open-git-in-browser.editorContextAction.enabled": {
             "type": "boolean",
-            "order": 3,
+            "order": 2,
             "default": true,
-            "description": "Show the status bar item for opening the remote in a browser"
-          },
-          "open-git-in-browser.statusBar.alignment": {
-            "type": "string",
-            "order": 4,
-            "enum": [
-              "left",
-              "right"
-            ],
-            "default": "right",
-            "description": "Which side of the status bar to show the action button on"
-          },
-          "open-git-in-browser.statusBar.icon": {
-            "type": "string",
-            "enum": [
-              "browser",
-              "export",
-              "link",
-              "external",
-              "globe",
-              "preview",
-              "remote",
-              "repo",
-              "repoPull",
-              "rocket",
-              "signOut",
-              "sourceControl"
-            ],
-            "default": "globe",
-            "description": "The icon of the status bar item"
+            "description": "Show the action for opening the remote in a browser in editor context."
           },
           "open-git-in-browser.specialGitPlatform": {
             "type": "object",
@@ -113,17 +81,30 @@
       }
     ],
     "menus": {
+      "commandPalette": [
+        {
+          "command": "open-git-in-browser.openGitInBrowser",
+          "when": "gitOpenRepositoryCount >= 1"
+        }
+      ],
       "explorer/context": [
         {
-          "when": "gitOpenRepositoryCount >= 1 && resourceScheme == 'file' && config.open-git-in-browser.explorerContextAction.enabled",
           "command": "open-git-in-browser.openGitInBrowser",
+          "when": "gitOpenRepositoryCount >= 1 && resourceScheme == 'file' && config.open-git-in-browser.explorerContextAction.enabled",
           "group": "z_commands"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "open-git-in-browser.openGitInBrowser",
+          "when": "editorTextFocus && gitOpenRepositoryCount >= 1 && resourceScheme == 'file' && config.open-git-in-browser.editorContextAction.enabled",
+          "group": "y_z_group@99"
         }
       ],
       "scm/title": [
         {
-          "when": "scmProvider == git && config.open-git-in-browser.scmAction.enabled",
           "command": "open-git-in-browser.openGitInBrowser",
+          "when": "scmProvider == git && config.open-git-in-browser.scmAction.enabled",
           "group": "inline"
         }
       ]

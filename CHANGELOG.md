@@ -2,7 +2,7 @@
 
 All notable changes to the "open-git-in-browser" extension will be documented in this file.
 
-## 1.0.0 - 2024-03-10
+## 1.0.0
 
 ### Added
 
