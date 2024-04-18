@@ -1,0 +1,42 @@
+<idea-plugin>
+    <id>io.github.huzunrong.git-open</id>
+    <name>Git Open</name>
+    <vendor email="huzunrong@foxmail.com" url="">huzunrong</vendor>
+
+    <description><![CDATA[
+    <p>Find git info (project/file url) in your project and open it in browser. Path: ContextMenu -> Git -> Open in Browser. The default keymap is: cmd/ctrl shift 0</p>
+    <br/>
+    <p>在浏览器中快速打开项目中的git远程页面，包括项目主页、文件所在页。操作路径：ContextMenu -> Git -> Open in Browser。默认快捷键：cmd/ctrl shift 0</p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+        1.0.3
+        <ul>
+            <li>fix exception in 2024.1</li>
+        </ul>
+      ]]>
+    </change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>Git4Idea</depends>
+
+<!--    <idea-version since-build="203.5981.155"/>-->
+    <idea-version since-build="231.0"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <notificationGroup id="git-open-notification" displayType="BALLOON"/>
+    </extensions>
+
+    <actions>
+        <!-- #e16531 -->
+        <action id="io.github.newhoo.git.GitOpenInBrowserAction" class="io.github.newhoo.git.GitOpenInBrowserAction" text="Open Git in Browser">
+            <keyboard-shortcut first-keystroke="ctrl shift 0" keymap="$default"/>
+            <add-to-group group-id="VcsGroups" anchor="last"/>
+            <add-to-group group-id="Git.ContextMenu" anchor="last"/>
+        </action>
+        <action id="io.github.newhoo.git.GitOpenInBrowserAction2" class="io.github.newhoo.git.GitOpenInBrowserAction" text="Git Browser" icon="com.intellij.icons.ExpUiIcons.General.Vcs">
+            <add-to-group group-id="RevealGroup" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>

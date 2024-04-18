@@ -8,7 +8,7 @@
   "publisher": "newhoo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/newhoo/vscode-open-git-in-browser.git"
+    "url": "https://github.com/newhoo/open-git-in-browser.git"
   },
   "author": {
     "name": "newhoo",
