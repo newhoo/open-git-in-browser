@@ -2,6 +2,8 @@
 
 Open git remote in your browser easily.
 
+_**State: The idea plugin has been migrated to the [RestfulBox](https://plugins.jetbrains.com/plugin/14723-restfulbox) plugin.**_
+
 ## Use in VSCode
 
 - Introduction: [open-git-in-browser-vscode-plugin/README](./open-git-in-browser-vscode-plugin/README.md)
